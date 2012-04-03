@@ -4,12 +4,12 @@ require 'ruby-debug'
 
 class AttendeesTest < Test::Unit::TestCase
 
-  context "attributes" do
+  context "methods" do
 
     setup do
     end
 
-    should "do something" do
+    should " " do
       assert true
     end
   end

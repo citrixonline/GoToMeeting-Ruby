@@ -4,6 +4,7 @@ require "go_to_meeting/groups"
 require "go_to_meeting/meetings"
 require "go_to_meeting/organizers"
 require "httparty"
+require 'multi_json'
 
 module GoToMeeting
   class API
@@ -16,20 +17,22 @@ module GoToMeeting
     include GoToMeeting::Meetings
     include GoToMeeting::Organizers
     
-    def initialize(access_key = nil, extra_params = {})
+    def initialize(access_token = nil, extra_params = {})
       
-      @access_key = access_key
+      # the access token from oauth 
+      @access_token = access_token
       
-      @default_options = {
+      @default_params = {
         :base_uri => "https://api.citrixonline.com/G2M/rest/",
         :headers => {
           "Content-type" => "application/json",
           "Accept" => "application/json",
-          "Authorization" => "OAuth oauth_token=#{@access_Key}" 
+          "Authorization" => "OAuth oauth_token=#{@access_token}" 
         }
       }
       
-      default_options = @default_options.merge(extra_params).freeze
+      @default_params = @default_params.merge(extra_params).freeze
+      self.class.default_options = self.class.default_options.merge(@default_params).freeze
     end
   end
 end
