@@ -1,6 +1,4 @@
 require 'helper'
-require 'cgi'
-require 'ruby-debug' 
 
 class AttendeesTest < Test::Unit::TestCase
 
@@ -9,25 +7,21 @@ class AttendeesTest < Test::Unit::TestCase
     setup do
       @c = GoToMeeting::API.new("12345")
     end
-    
-    should "include HTTParty" do
-      
-    end
 
-    should "have api key is set" do
-  
+    should "have access_token is set" do
+      assert_equal(@c.access_token, "12345")
     end
     
     should "have valid accept header" do
-     
+      assert_equal("application/json", @c.class.headers["Accept"])
     end
     
     should "have valid content-type header" do
-      
+      assert_equal("application/json", @c.class.headers["Content-type"])
     end
     
     should "have custom OAuth header" do
-      
+      assert_equal("OAuth oauth_token=12345", @c.class.headers["Authorization"])
     end
     
   end

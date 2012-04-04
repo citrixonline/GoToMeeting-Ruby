@@ -1,6 +1,4 @@
-require 'helper'
-require 'cgi'
-require 'ruby-debug' 
+require 'helper' 
 
 class OrganizersTest < Test::Unit::TestCase
 

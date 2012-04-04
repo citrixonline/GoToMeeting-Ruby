@@ -1,6 +1,4 @@
 require 'helper'
-require 'cgi'
-require 'ruby-debug' 
 
 class AttendeesTest < Test::Unit::TestCase
 

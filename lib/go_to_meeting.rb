@@ -17,6 +17,8 @@ module GoToMeeting
     include GoToMeeting::Meetings
     include GoToMeeting::Organizers
     
+    attr_accessor :access_token
+    
     def initialize(access_token = nil, extra_params = {})
       
       # the access token from oauth 
@@ -34,5 +36,6 @@ module GoToMeeting
       @default_params = @default_params.merge(extra_params).freeze
       self.class.default_options = self.class.default_options.merge(@default_params).freeze
     end
+    
   end
 end
