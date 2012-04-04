@@ -15,7 +15,7 @@ module GoToMeeting
 		end
 	
 		def delete_organizer_by_email(organizer_email)
-      self.class.delete("organizers/#{organizer_email}").parsed_response
+      self.class.delete("organizers", :query => {:email => organizer_email}).parsed_response
 		end
 	
 		def get_organizer(organizer_key)
@@ -23,7 +23,7 @@ module GoToMeeting
 		end
 	
 		def get_organizer_by_email(organizer_email)
-      self.class.get("organizers/", :query => {:email => organizer_email}).parsed_response
+      self.class.get("organizers", :query => {:email => organizer_email}).parsed_response
 		end
 	
 		def get_organizers_by_group(group_key)
