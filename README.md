@@ -4,7 +4,7 @@ This is a project to build a Ruby wrapper for using Citrix's GoToMeeting REST AP
 
 ##Requirements
 
-You must have an active GoToMeeting account and a valid access token from the GoToMeeting OAuth. Please refer to the [Citrix Online OAuth documentation](https://developer.citrixonline.com/page/authentication-and-authorization). 
+You must have an active GoToMeeting account and a valid access token from the GoToMeeting OAuth flow. Please refer to the [authentication and authorization documentation](https://developer.citrixonline.com/page/authentication-and-authorization). 
 
 ##Install
 
