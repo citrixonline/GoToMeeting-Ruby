@@ -1,6 +1,6 @@
 require 'helper'
 
-class AttendeesTest < Test::Unit::TestCase
+class APITest < Test::Unit::TestCase
 
   context "attributes" do
 
