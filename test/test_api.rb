@@ -9,7 +9,7 @@ class APITest < Test::Unit::TestCase
     end
 
     should "have access_token is set" do
-      assert_equal(@c.access_token, "12345")
+      assert_equal("12345", @c.access_token)
     end
     
     should "have valid accept header" do
