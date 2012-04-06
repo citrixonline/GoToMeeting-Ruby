@@ -2,7 +2,7 @@ module GoToMeeting
 	module Groups
 		
 		def get_groups
-      self.class.get("groups").parsed_response
+      self.class.get("groups")
 		end
 		
 	end

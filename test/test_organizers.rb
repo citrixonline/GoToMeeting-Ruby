@@ -7,6 +7,11 @@ class OrganizersTest < Test::Unit::TestCase
     setup do
       @c = GoToMeeting::API.new("12345")
     end
+    
+    teardown do
+      FakeWeb.clean_registry
+    end
+    
 
     should "generate valid create organizer" do
       assert true
