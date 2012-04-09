@@ -30,4 +30,4 @@ or if you want to access response code for request
 
 ##Status
 
-Tests are incomplete at this time. 
+All tests are passing. 
