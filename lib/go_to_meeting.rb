@@ -11,7 +11,6 @@ module GoToMeeting
     
     include HTTParty
     format :json
-    default_timeout 60
     
     include GoToMeeting::Attendees
     include GoToMeeting::Groups
