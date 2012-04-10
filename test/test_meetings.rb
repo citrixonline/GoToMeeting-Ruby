@@ -11,6 +11,15 @@ class MeetingsTest < Test::Unit::TestCase
     teardown do
       FakeWeb.clean_registry
     end
+    
+    should "generate valid get meetings" do
+      FakeWeb.register_uri(:get, "https://api.citrixonline.com/G2M/rest/meetings/54321", :body => '{"meetingid":"54321"}', :content_type => "application/json", :status => ["200", "OK"])
+      @r = @c.get_meeting('54321')
+      assert_not_nil @r
+      assert @r.parsed_response.is_a?(Array)
+      assert_equal('54321', @r.parsed_response["meetingid"]) 
+    end
+    
 
     should "generate valid create meetings" do
       FakeWeb.register_uri(:post, "https://api.citrixonline.com/G2M/rest/meetings", :body => "12345", :content_type => "application/json", :status => ["201", "Created"])
