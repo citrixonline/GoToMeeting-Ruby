@@ -13,6 +13,10 @@ module GoToMeeting
       self.class.delete("meetings/#{meeting_key}")
     end
     
+    # expects a few items
+    # scheduled = true or history = true
+    # startDate and endDate in iso8601 format, use Time.now.utc.iso8601 or something similar
+    # example { "history" => true, "startDate" => (Time.now - (60 * 60 * 24 * 90)).utc.iso8601, "endDate" => Time.now.utc.iso8601 }
     def get_meetings(query)
       self.class.get("meetings", :query => query)
     end
