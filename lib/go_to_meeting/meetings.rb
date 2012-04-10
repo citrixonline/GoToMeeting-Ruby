@@ -1,8 +1,12 @@
 module GoToMeeting
   module Meetings
     
+    def get_meeting(meeting_key)
+      self.class.get("meetings/#{meeting_key}")
+    end
+    
     def create_meeting(params)
-      @r = self.class.post("meetings", :body => params.to_json, :format => "HTML") 
+      self.class.post("meetings", :body => params.to_json, :format => "HTML") 
     end
     
     def update_meeting(meeting_key, params)
