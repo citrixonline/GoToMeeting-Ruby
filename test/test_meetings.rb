@@ -5,14 +5,14 @@ class MeetingsTest < Test::Unit::TestCase
   context "attributes" do
 
     setup do
-      @c = GoToMeeting::API.new("12345")
+      @c = GoToMeeting::Client.new("12345")
     end
     
     teardown do
       FakeWeb.clean_registry
     end
     
-    should "generate valid get meetings" do
+    should "generate valid get meeting" do
       FakeWeb.register_uri(:get, "https://api.citrixonline.com/G2M/rest/meetings/54321", :body => '{"meetingid":"54321"}', :content_type => "application/json", :status => ["200", "OK"])
       @r = @c.get_meeting('54321')
       assert_not_nil @r

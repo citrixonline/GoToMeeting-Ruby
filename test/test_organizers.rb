@@ -5,7 +5,7 @@ class OrganizersTest < Test::Unit::TestCase
   context "attributes" do
 
     setup do
-      @c = GoToMeeting::API.new("12345")
+      @c = GoToMeeting::Client.new("12345")
     end
     
     teardown do

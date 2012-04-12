@@ -1,11 +1,11 @@
 require 'helper'
 
-class APITest < Test::Unit::TestCase
+class ClientTest < Test::Unit::TestCase
 
   context "attributes" do
 
     setup do
-      @c = GoToMeeting::API.new("12345")
+      @c = GoToMeeting::Client.new("12345")
     end
 
     should "have access_token is set" do

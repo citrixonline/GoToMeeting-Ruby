@@ -7,7 +7,7 @@ require "httparty"
 require 'multi_json'
 
 module GoToMeeting
-  class API
+  class Client
     
     include HTTParty
     format :json

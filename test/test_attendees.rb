@@ -5,7 +5,7 @@ class AttendeesTest < Test::Unit::TestCase
   context "methods" do
 
     setup do
-      @c = GoToMeeting::API.new("12345")
+      @c = GoToMeeting::Client.new("12345")
     end
     
     teardown do
