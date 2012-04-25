@@ -16,7 +16,7 @@ class MeetingsTest < Test::Unit::TestCase
       FakeWeb.register_uri(:get, "https://api.citrixonline.com/G2M/rest/meetings/54321", :body => '{"meetingid":"54321"}', :content_type => "application/json", :status => ["200", "OK"])
       @r = @c.get_meeting('54321')
       assert_not_nil @r
-      assert @r.parsed_response.is_a?(Array)
+      assert @r.parsed_response.is_a?(Hash)
       assert_equal('54321', @r.parsed_response["meetingid"]) 
     end
     
