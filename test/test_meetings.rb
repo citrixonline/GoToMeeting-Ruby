@@ -19,7 +19,6 @@ class MeetingsTest < Test::Unit::TestCase
       assert @r.parsed_response.is_a?(Hash)
       assert_equal('54321', @r.parsed_response["meetingid"]) 
     end
-    
 
     should "generate valid create meetings" do
       FakeWeb.register_uri(:post, "https://api.citrixonline.com/G2M/rest/meetings", :body => "12345", :content_type => "application/json", :status => ["201", "Created"])

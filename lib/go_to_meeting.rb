@@ -7,6 +7,7 @@ require "httparty"
 require 'multi_json'
 
 module GoToMeeting
+  
   class Client
     
     include HTTParty
@@ -38,4 +39,5 @@ module GoToMeeting
     end
     
   end
+  
 end
