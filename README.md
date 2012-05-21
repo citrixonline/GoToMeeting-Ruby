@@ -14,7 +14,7 @@ It isn't an official repository yet so you can't do the normal gem install route
 	
 For now you will need to install from source. 
 
-	gem install go_to_meeting, :git => 'git://github.com/nathanwfish/GoToMeeting.git'
+	gem install go_to_meeting, :git => 'git://github.com/citrixonline/GoToMeeting-Ruby.git'
 
 ##Usage
 
