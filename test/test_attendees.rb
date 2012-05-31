@@ -13,16 +13,16 @@ class AttendeesTest < Test::Unit::TestCase
     end
 
     should "generate valid get attendees by group" do
-      FakeWeb.register_uri(:get, "https://api.citrixonline.com/G2M/rest/groups/12345/attendees", :body => '[{"meetingid":12345},{"meetingid": 54321}]', :content_type => "application/json", :status => ["200", "OK"])
-      @r = @c.get_attendees_by_group("12345")
+      FakeWeb.register_uri(:get, "https://api.citrixonline.com/G2M/rest/groups/12345/attendees?startDate=2011-11-15T09%3A00%3A00Z&endDate=2011-11-15T09%3A00%3A00Z", :body => '[{"meetingid":12345},{"meetingid": 54321}]', :content_type => "application/json", :status => ["200", "OK"])
+      @r = @c.get_attendees_by_group("12345", {"startDate" => "2011-11-15T09:00:00Z", "endDate" => "2011-11-15T09:00:00Z"})
       assert_not_nil @r
       assert @r.parsed_response.is_a?(Array)
       assert_not_nil @r.parsed_response.first["meetingid"]
     end
     
     should "generate valid get attendees by meeting" do
-      FakeWeb.register_uri(:get, "https://api.citrixonline.com/G2M/rest/meetings/12345/attendees", :body => '[{"meetingid":12345},{"meetingid": 12345}]', :content_type => "application/json", :status => ["200", "OK"])
-      @r = @c.get_attendees_by_meeting("12345")
+      FakeWeb.register_uri(:get, "https://api.citrixonline.com/G2M/rest/meetings/12345/attendees?startDate=2011-11-15T09%3A00%3A00Z&endDate=2011-11-15T09%3A00%3A00Z", :body => '[{"meetingid":12345},{"meetingid": 12345}]', :content_type => "application/json", :status => ["200", "OK"])
+      @r = @c.get_attendees_by_meeting("12345", {"startDate" => "2011-11-15T09:00:00Z", "endDate" => "2011-11-15T09:00:00Z"})
       assert_not_nil @r
       assert @r.parsed_response.is_a?(Array)
       assert_not_nil @r.first["meetingid"]
@@ -30,8 +30,8 @@ class AttendeesTest < Test::Unit::TestCase
     end
     
     should "generate valid get attendees by organizer" do
-      FakeWeb.register_uri(:get, "https://api.citrixonline.com/G2M/rest/organizers/12345/attendees", :body => '[{"meetingid":12345},{"meetingid": 54321}]', :content_type => "application/json", :status => ["200", "OK"])
-      @r = @c.get_attendees_by_organizer("12345")
+      FakeWeb.register_uri(:get, "https://api.citrixonline.com/G2M/rest/organizers/12345/attendees?startDate=2011-11-15T09%3A00%3A00Z&endDate=2011-11-15T09%3A00%3A00Z", :body => '[{"meetingid":12345},{"meetingid": 54321}]', :content_type => "application/json", :status => ["200", "OK"])
+      @r = @c.get_attendees_by_organizer("12345", {"startDate" => "2011-11-15T09:00:00Z", "endDate" => "2011-11-15T09:00:00Z"})
       assert_not_nil @r
       assert @r.parsed_response.is_a?(Array)
       assert_not_nil @r.parsed_response.first["meetingid"]
