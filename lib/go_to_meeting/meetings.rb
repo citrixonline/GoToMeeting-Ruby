@@ -20,17 +20,18 @@ module GoToMeeting
     # expects a few items
     # scheduled = true or history = true
     # startDate and endDate in iso8601 format, use Time.now.utc.iso8601 or something similarin rails
-    # example { "history" => true, "startDate" => (Time.now - (60 * 60 * 24 * 90)).utc.iso8601, "endDate" => Time.now.utc.iso8601 }
+    # @meetings = @client.get_meetings({"history" => "true", "endDate" => (Time.now - 15).utc.iso8601, "startDate" => (Time.now - (60 * 60 * 24 * 90)).utc.iso8601 })
+    
     def get_meetings(query)
       self.class.get("meetings", :query => query)
     end
     
-    def get_meetings_by_group(group_key)
-      self.class.get("groups/#{group_key}/meetings")
+    def get_meetings_by_group(group_key, query)
+      self.class.get("groups/#{group_key}/meetings", :query => query)
     end
     
-    def get_meetings_by_organizer(organizer_key)
-      self.class.get("organizers/#{organizer_key}/meetings")
+    def get_meetings_by_organizer(organizer_key, query)
+      self.class.get("organizers/#{organizer_key}/meetings", :query => query)
     end
     
   end
