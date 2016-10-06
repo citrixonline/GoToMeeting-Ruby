@@ -26,7 +26,7 @@ module GoToMeeting
       @access_token = access_token
       
       @default_params = {
-        :base_uri => "https://api.citrixonline.com/G2M/rest/",
+        :base_uri => "https://api.citrixonline.com/G2M/rest",
         :headers => {
           "Content-type" => "application/json",
           "Accept" => "application/json",
